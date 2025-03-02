@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Bio Quest New.sln"
+    "dotnet.defaultSolution": "Bio-Quest.sln"
 }
