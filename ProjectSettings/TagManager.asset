@@ -3,7 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - QDSUISharedThemeColor
+  - QDSUISection
+  - QDSUIIcon
+  - QDSUITooltip
+  - QDSUIPrimaryButton
+  - QDSUISecondaryButton
+  - QDSUIAccentColor
+  - QDSUIToggleButton
+  - QDSUITextSecondaryColor
+  - QDSUITextInputField
+  - QDSUIToggleBorderlessButton
+  - QDSUIToggleSwitch
+  - QDSUIBorderlessButton
+  - QDSUIDestructiveButton
+  - QDSUIToggleCheckboxRadio
+  - Pancreas
+  - Heart
   layers:
   - Default
   - TransparentFX
