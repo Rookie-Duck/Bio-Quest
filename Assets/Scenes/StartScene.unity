@@ -3478,7 +3478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8003476868084245589, guid: a1c1dd099c8b615468e751497ff9eb77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.632
+      value: -2.652
       objectReference: {fileID: 0}
     - target: {fileID: 8003476868084245589, guid: a1c1dd099c8b615468e751497ff9eb77, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10050,6 +10050,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1623758294}
     m_Modifications:
+    - target: {fileID: 7871719466834749583, guid: f4078889f64397a45baaa568f1d5e56b, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 344eeffb469fdeb4683c1bdab45b2909, type: 2}
+    - target: {fileID: 7871719466834749583, guid: f4078889f64397a45baaa568f1d5e56b, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 757a7eb189f071b4c8ad19ab07256062, type: 2}
     - target: {fileID: 8519978534429116762, guid: f4078889f64397a45baaa568f1d5e56b, type: 3}
       propertyPath: m_Name
       value: SM_Wall_400
@@ -20368,7 +20376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8003476868084245589, guid: a1c1dd099c8b615468e751497ff9eb77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.508
+      value: -3.5279999
       objectReference: {fileID: 0}
     - target: {fileID: 8003476868084245589, guid: a1c1dd099c8b615468e751497ff9eb77, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21180,7 +21188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2298151321628878856, guid: 523b2d04c4748734287ecbaffdba3960, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.04
+      value: -3.06
       objectReference: {fileID: 0}
     - target: {fileID: 2298151321628878856, guid: 523b2d04c4748734287ecbaffdba3960, type: 3}
       propertyPath: m_LocalPosition.y
