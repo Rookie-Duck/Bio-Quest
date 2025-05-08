@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ChemuBondScene.unity
-    guid: 8c516d27186d62648a15c7adde5b10b9
+    path: Assets/Scenes/StartScene.unity
+    guid: ad5611724046afa439204cb01aaccb00
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 221c1277a1727304ebaeeaba1da888a1, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9baf91976174a6f43a2199733e3e48ca, type: 2}
