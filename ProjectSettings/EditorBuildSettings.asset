@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: ad5611724046afa439204cb01aaccb00
   - enabled: 0
-    path: "Assets/Samples/Meta XR Interaction \u200BSDK/72.0.0/Example Scenes/RayExamples.unity"
-    guid: 1b2d3f90c0f50b94cb910c66c773d00d
+    path: "Assets/Samples/Meta XR Interaction \u200BSDK/72.0.0/Example Scenes/PokeExamples.unity"
+    guid: ada3086bde0ab18459589e22d8d9e182
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 221c1277a1727304ebaeeaba1da888a1, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9baf91976174a6f43a2199733e3e48ca, type: 2}
