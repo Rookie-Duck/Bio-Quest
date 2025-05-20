@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fec1b0e34c04eef4cb295b2a7ca6b798, type: 3}
-  m_Name: Brain
+  m_Name: Usus_Besar
   m_EditorClassIdentifier: 
-  organName: Brain
-  definition: The brain is a very important organ and serves as the control center
-    for all human activities.
-  function: The brain is responsible for regulating all functions in the body, ranging
-    from movement, secretion of hormone release, cognition, sensation, to emotions.
+  organName: Usus Besar
+  definition: Usus besar merupakan kelanjutan dari usus halus yang memiliki tambahan
+    usus yang berupa umbai cacing (appendix).
+  function: Fungsi utama usus halus adalah menyerap air dari feses.
   imageSlide1: {fileID: 0}
   imageSlide2: {fileID: 0}
   videoClip: {fileID: 0}

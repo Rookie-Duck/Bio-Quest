@@ -52266,7 +52266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5601380166943682056, guid: 273f5fd5e99b5684c8cd22a2115e34fb, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5601380166943682056, guid: 273f5fd5e99b5684c8cd22a2115e34fb, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -52295,7 +52295,7 @@ PrefabInstance:
     - target: {fileID: 5601380166943682056, guid: 273f5fd5e99b5684c8cd22a2115e34fb, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1885168793}
+      objectReference: {fileID: 0}
     - target: {fileID: 5601380166943682056, guid: 273f5fd5e99b5684c8cd22a2115e34fb, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -52421,9 +52421,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6747769026447002265, guid: 273f5fd5e99b5684c8cd22a2115e34fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1885168792}
-    - targetCorrespondingSourceObject: {fileID: 6747769026447002265, guid: 273f5fd5e99b5684c8cd22a2115e34fb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1885168793}
   m_SourcePrefab: {fileID: 100100000, guid: 273f5fd5e99b5684c8cd22a2115e34fb, type: 3}
 --- !u!4 &1885168785 stripped
 Transform:
@@ -52485,21 +52482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   humanOrgansParent: {fileID: 150935743861634282}
---- !u!114 &1885168793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885168790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83d8f53f5315d148bb09247e376789d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  organData: {fileID: 11400000, guid: 44174c39bd5fbd64caa1b839c90dbcfc, type: 2}
-  uiPrefab: {fileID: 1693329908905632410, guid: 9346111bf0eefe2438fa57d6460d2e10, type: 3}
-  uiSpawnPoint: {fileID: 9188265272429152740, guid: 9346111bf0eefe2438fa57d6460d2e10, type: 3}
 --- !u!1 &1885863142
 GameObject:
   m_ObjectHideFlags: 0

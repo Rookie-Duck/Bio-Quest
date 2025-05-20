@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec1b0e34c04eef4cb295b2a7ca6b798, type: 3}
+  m_Name: Otak
+  m_EditorClassIdentifier: 
+  organName: Otak
+  definition: Otak merupakan alat tubuh yang sangat penting dan sebagai pusat pengatur
+    dari segala kegiatan manusia.
+  function: 'Otak bertugas untuk mengatur segala fungsi di tubuh, mulai dari gerakan,
+    sekresi atau mengeluarkan hormon, daya pikir atau kognitif, sensasi, hingga emosi. '
+  imageSlide1: {fileID: 0}
+  imageSlide2: {fileID: 0}
+  videoClip: {fileID: 0}

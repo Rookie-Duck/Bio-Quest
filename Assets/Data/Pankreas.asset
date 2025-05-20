@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec1b0e34c04eef4cb295b2a7ca6b798, type: 3}
+  m_Name: Pankreas
+  m_EditorClassIdentifier: 
+  organName: Pankreas
+  definition: Pankreas adalah organ panjang yang bertekstur seperti spons yang ada
+    di perut, dekat limpa dan organ pencernaan lain.
+  function: Pankreas adalah organ pada sistem pencernaan yang memiliki dua fungsi
+    utama yaitu menghasilkan enzim pencernaan serta beberapa hormon penting seperti
+    insulin.
+  imageSlide1: {fileID: 0}
+  imageSlide2: {fileID: 0}
+  videoClip: {fileID: 0}
