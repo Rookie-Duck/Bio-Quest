@@ -1,41 +1,30 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class OrganExplorerPokeHandler : MonoBehaviour
 {
     public OrganExplorerData organData;
     public GameObject uiPrefab;
-    private GameObject currentUI;
     public Transform uiSpawnPoint;
 
-    private int pokeCount = 0;
-    private OrganExplorerUIController uiController;
+    private GameObject spawnedUI;
 
     public void OnPoke()
     {
-        pokeCount++;
-
-        if (currentUI == null)
+        // Kalau UI sudah aktif dan ini organ yang sama → tutup
+        if (spawnedUI != null && OrganExplorerUIManager.Instance.IsUIActive())
         {
-            currentUI = Instantiate(uiPrefab, uiSpawnPoint.position, uiSpawnPoint.rotation);
-            uiController = currentUI.GetComponent<OrganExplorerUIController>();
-            uiController.Setup(organData);
-            pokeCount = 1; // reset count karena UI baru muncul
+            OrganExplorerUIManager.Instance.CloseUI();
+            spawnedUI = null;
         }
         else
         {
-            if (pokeCount == 2)
-            {
-                CloseUI();
-                pokeCount = 0;
-            }
-        }
-    }
+            // Spawn baru dan register ke manager
+            GameObject newUI = Instantiate(uiPrefab, uiSpawnPoint.position, uiSpawnPoint.rotation);
+            var uiController = newUI.GetComponent<OrganExplorerUIController>();
+            uiController.Setup(organData);
 
-    void CloseUI()
-    {
-        if (currentUI != null)
-            Destroy(currentUI);
-        currentUI = null;
-        uiController = null;
+            OrganExplorerUIManager.Instance.ShowUI(newUI);
+            spawnedUI = newUI;
+        }
     }
 }

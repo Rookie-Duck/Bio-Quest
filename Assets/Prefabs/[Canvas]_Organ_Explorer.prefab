@@ -413,10 +413,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba16d0c67ebbdf2428d1753cabd3c558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleText: {fileID: 2483901761523899261}
+  textDisplay: {fileID: 1009460812790003467}
   imageDisplay: {fileID: 8481333992825307596}
-  textDisplay: {fileID: 2483901761523899261}
   videoPanel: {fileID: 7832191492170577974}
   videoPlayer: {fileID: 6188502652361490589}
+  nextButtonPanel: {fileID: 8088858254822525049}
+  prevButtonPanel: {fileID: 4412035857563135496}
 --- !u!1 &2595811914246616941
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiController: {fileID: 599810088359011499}
-  isNext: 1
+  isNext: 0
 --- !u!1 &4412035857563135496
 GameObject:
   m_ObjectHideFlags: 0

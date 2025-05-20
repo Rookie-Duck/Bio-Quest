@@ -5,15 +5,18 @@ using TMPro;
 
 public class OrganExplorerUIController : MonoBehaviour
 {
-    public Image imageDisplay;
+    public TextMeshProUGUI titleText;
     public TextMeshProUGUI textDisplay;
+    public Image imageDisplay;
     public GameObject videoPanel;
     public VideoPlayer videoPlayer;
+
+    public GameObject nextButtonPanel;
+    public GameObject prevButtonPanel;
 
     private int currentSlide = 0;
     private OrganExplorerData organ;
 
-    // Setup UI dengan data organ
     public void Setup(OrganExplorerData data)
     {
         organ = data;
@@ -21,7 +24,6 @@ public class OrganExplorerUIController : MonoBehaviour
         ShowSlide(currentSlide);
     }
 
-    // Fungsi untuk pindah ke slide berikutnya
     public void NextSlide()
     {
         if (currentSlide < 2)
@@ -31,7 +33,6 @@ public class OrganExplorerUIController : MonoBehaviour
         }
     }
 
-    // Fungsi untuk pindah ke slide sebelumnya (optional)
     public void PrevSlide()
     {
         if (currentSlide > 0)
@@ -41,11 +42,15 @@ public class OrganExplorerUIController : MonoBehaviour
         }
     }
 
-    // Tampilkan slide sesuai index
     void ShowSlide(int index)
     {
+        // Reset semua visual
         videoPanel.SetActive(false);
         videoPlayer.Stop();
+        imageDisplay.enabled = true;
+        textDisplay.enabled = true;
+
+        titleText.text = organ.organName;
 
         switch (index)
         {
@@ -58,12 +63,16 @@ public class OrganExplorerUIController : MonoBehaviour
                 textDisplay.text = organ.function;
                 break;
             case 2:
-                imageDisplay.sprite = null;
-                textDisplay.text = organ.organName;
+                imageDisplay.enabled = false;
+                textDisplay.enabled = false;
                 videoPanel.SetActive(true);
                 videoPlayer.clip = organ.videoClip;
                 videoPlayer.Play();
                 break;
         }
+
+        // Atur visibilitas tombol navigasi
+        prevButtonPanel.SetActive(index > 0);         // Hanya tampil di slide 2–3
+        nextButtonPanel.SetActive(index < 2);         // Hanya tampil di slide 1–2
     }
 }
