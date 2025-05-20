@@ -19,8 +19,22 @@ TagManager:
   - QDSUIBorderlessButton
   - QDSUIDestructiveButton
   - QDSUIToggleCheckboxRadio
-  - Pancreas
+  - QDSUIBackplateGradient
+  - BodyBack
+  - BodyFront
+  - Brain
+  - NoseCavity
+  - OralCavity
+  - Trachea
+  - Lungs
   - Heart
+  - Liver
+  - Stomach
+  - Gallbladder
+  - Pancreas
+  - Kidney
+  - LargeIntestine
+  - SmallIntestine
   layers:
   - Default
   - TransparentFX

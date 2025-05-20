@@ -3,7 +3,67 @@ guid: 18b679a060ce50f4e816bdc9a64bc153
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brain
+    second: {fileID: 2100000, guid: 3eaa6c225b32e1e44997f537a9df0d3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flesh
+    second: {fileID: 2100000, guid: 4cb334f4ec2752044bfd4c3e9ef8c9bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gallbladder
+    second: {fileID: 2100000, guid: a98c442687038b940a1ba2a810cbaed9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Heart
+    second: {fileID: 2100000, guid: 40c4dfe7bae79a7479ebca02e334fd32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kidney
+    second: {fileID: 2100000, guid: be27f903dee40354391bd398f8741e7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Liver
+    second: {fileID: 2100000, guid: 0b5d069c4c4c2674ebe1babd243b819c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lung
+    second: {fileID: 2100000, guid: da35fc97a0a09f24588999af76c99029, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: f2ab5f087e30a5248bb38657947b0292, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nose
+    second: {fileID: 2100000, guid: 98e930ef568413b4498a3bc2f74b9c0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: 7268dbb0b04da434f93df152a4659030, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Trachea1
+    second: {fileID: 2100000, guid: 5f0b2e00921bca64d9350616f8e114d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vena
+    second: {fileID: 2100000, guid: 9c73b58e7f158954bb0383ea7c4630a6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
