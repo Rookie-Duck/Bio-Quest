@@ -10,6 +10,8 @@ public class ButtonManager : MonoBehaviour
     private Dictionary<Transform, Vector3> initialPositions = new Dictionary<Transform, Vector3>();
     private Dictionary<Transform, Quaternion> initialRotations = new Dictionary<Transform, Quaternion>();
 
+    public GameObject findTheOrganGameManager;
+
     private int clickCount = 0;
 
     void Awake()
@@ -101,6 +103,19 @@ public class ButtonManager : MonoBehaviour
             // Rekursif kalau punya anak lagi
             if (child.childCount > 0)
                 SaveInitialTransformsRecursive(child);
+        }
+    }
+    public void StartFindTheOrganGame()
+    {
+        ResetAllOrgans();
+
+        if (findTheOrganGameManager != null)
+        {
+            findTheOrganGameManager.GetComponent<FindTheOrganGameManager>().OnPlayButtonPoke();
+        }
+        else
+        {
+            Debug.LogWarning("FindTheOrganGameManager not assigned di ButtonManager!");
         }
     }
 

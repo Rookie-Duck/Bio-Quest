@@ -75,4 +75,13 @@ public class OrganExplorerUIController : MonoBehaviour
         prevButtonPanel.SetActive(index > 0);         // Hanya tampil di slide 2–3
         nextButtonPanel.SetActive(index < 2);         // Hanya tampil di slide 1–2
     }
+
+    public void CloseSelf()
+    {
+        if (OrganExplorerUIManager.Instance != null)
+        {
+            OrganExplorerUIManager.Instance.CloseUI();
+        }
+    }
+
 }
