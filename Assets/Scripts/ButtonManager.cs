@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
+    public MatchTheOrganShuffler organShuffler;
+
     public Transform humanOrgansParent;
     public GameObject findTheOrganGameManager;
 
@@ -99,7 +101,7 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
-    // 🔁 Fungsi untuk mulai ulang game
+    // Mode: Find The Organ
     public void StartFindTheOrganGame()
     {
         ResetAllOrgans();
@@ -134,5 +136,14 @@ public class ButtonManager : MonoBehaviour
             organGame.SetLanguage("indonesian");
             StartFindTheOrganGame();
         }
+    }
+
+    // Mode: Match The Organ
+    public void ShuffleOrgansFromButton()
+    {
+        if (organShuffler != null)
+            organShuffler.ShuffleOrgans();
+        else
+            Debug.LogWarning("Shuffler belum di-assign!");
     }
 }
