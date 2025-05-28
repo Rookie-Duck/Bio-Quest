@@ -258,7 +258,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4469725948769564323, guid: 3175537310517714e8399d9f43790b03, type: 3}
         m_TargetAssemblyTypeName: FindTheOrganGameManager, Assembly-CSharp
-        m_MethodName: OnPlayButtonPoke
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3568287873051333136
 MonoBehaviour:
   m_ObjectHideFlags: 0

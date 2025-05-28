@@ -17,6 +17,6 @@ MonoBehaviour:
     tanpa henti memompa darah keseluruh tubuh.
   function: Jantung memompa darah yang membawa oksigen dan makanan ke seluruh tubuh
     agar tubuh bisa bekerja dengan baik.
-  imageSlide1: {fileID: 0}
+  imageSlide1: {fileID: 21300000, guid: 60704c51963be3c4397db88e11610928, type: 3}
   imageSlide2: {fileID: 0}
   videoClip: {fileID: 0}

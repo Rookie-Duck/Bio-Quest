@@ -16,6 +16,6 @@ MonoBehaviour:
   definition: Rongga mulut adalah rongga terbuka yang berfungsi sebagai pintu masuk
     makanan, minuman, dan udara ke dalam tubuh.
   function: Berfungsi sebagai pintu masuk makanan, minuman, dan udara ke dalam tubuh.
-  imageSlide1: {fileID: 0}
+  imageSlide1: {fileID: 21300000, guid: a511890f6d61954478fdccc0c1595884, type: 3}
   imageSlide2: {fileID: 0}
   videoClip: {fileID: 0}

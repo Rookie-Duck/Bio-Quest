@@ -631,7 +631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kantung Empedu
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54ed518b1f1e17447a4b63badabf3895, type: 2}
   m_sharedMaterial: {fileID: -8371864681066449183, guid: 54ed518b1f1e17447a4b63badabf3895, type: 2}

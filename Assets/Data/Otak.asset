@@ -17,6 +17,6 @@ MonoBehaviour:
     dari segala kegiatan manusia.
   function: 'Otak bertugas untuk mengatur segala fungsi di tubuh, mulai dari gerakan,
     sekresi atau mengeluarkan hormon, daya pikir atau kognitif, sensasi, hingga emosi. '
-  imageSlide1: {fileID: 0}
-  imageSlide2: {fileID: 0}
-  videoClip: {fileID: 0}
+  imageSlide1: {fileID: 21300000, guid: 5eb6761ba340268458b10b0d3d09cdc6, type: 3}
+  imageSlide2: {fileID: 21300000, guid: 89b8fa32a1eaa694c8e4f37e37d23faa, type: 3}
+  videoClip: {fileID: 32900000, guid: d944a3cfc9cf95f43887e5e7034bbe93, type: 3}

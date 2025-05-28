@@ -1,42 +1,38 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class ButtonManager : MonoBehaviour
 {
     public Transform humanOrgansParent;
+    public GameObject findTheOrganGameManager;
 
     private Dictionary<Transform, Vector3> initialPositions = new Dictionary<Transform, Vector3>();
     private Dictionary<Transform, Quaternion> initialRotations = new Dictionary<Transform, Quaternion>();
-
-    public GameObject findTheOrganGameManager;
 
     private int clickCount = 0;
 
     void Awake()
     {
-        // Recursive simpan semua posisi & rotasi anak-anak dari humanOrgansParent
+        // Simpan posisi & rotasi awal organ secara rekursif
         SaveInitialTransformsRecursive(humanOrgansParent);
     }
 
+    // Fungsi untuk mengulang posisi semua organ
     public void ResetAllOrgans()
     {
         foreach (var entry in initialPositions)
         {
             Transform organ = entry.Key;
-            Vector3 originalPos = entry.Value;
-            Quaternion originalRot = initialRotations[organ];
+            organ.localPosition = entry.Value;
+            organ.localRotation = initialRotations[organ];
 
-            organ.localPosition = originalPos;
-            organ.localRotation = originalRot;
-
-            // Optional: aktifkan lagi jika sempat dinonaktifkan
             if (!organ.gameObject.activeSelf)
                 organ.gameObject.SetActive(true);
         }
     }
 
+    // Fungsi untuk menyembunyikan bagian tubuh bertahap
     public void HideButton()
     {
         clickCount++;
@@ -50,16 +46,13 @@ public class ButtonManager : MonoBehaviour
                 SetBodyPartActive("Body-Back", false);
                 break;
             case 3:
-                string[] tagsToReset = { "BodyFront", "BodyBack" };
-                foreach (string tag in tagsToReset)
-                    ResetAndUnhideTagged(tag);
-
+                ResetAndUnhideTagged("BodyFront");
+                ResetAndUnhideTagged("BodyBack");
                 clickCount = 0;
                 break;
         }
     }
 
-    // Hiding Object Function
     private void ResetAndUnhideTagged(string tag)
     {
         foreach (var entry in initialPositions)
@@ -73,6 +66,7 @@ public class ButtonManager : MonoBehaviour
             }
         }
     }
+
     private void SetBodyPartActive(string name, bool isActive)
     {
         SetActiveRecursive(humanOrgansParent, name, isActive);
@@ -85,7 +79,7 @@ public class ButtonManager : MonoBehaviour
             if (t.name == name)
             {
                 t.gameObject.SetActive(isActive);
-                return; // stop setelah ketemu
+                return;
             }
 
             if (t.childCount > 0)
@@ -93,30 +87,52 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
-    void SaveInitialTransformsRecursive(Transform parent)
+    private void SaveInitialTransformsRecursive(Transform parent)
     {
         foreach (Transform child in parent)
         {
             initialPositions[child] = child.localPosition;
             initialRotations[child] = child.localRotation;
 
-            // Rekursif kalau punya anak lagi
             if (child.childCount > 0)
                 SaveInitialTransformsRecursive(child);
         }
     }
+
+    // 🔁 Fungsi untuk mulai ulang game
     public void StartFindTheOrganGame()
     {
         ResetAllOrgans();
 
         if (findTheOrganGameManager != null)
         {
-            findTheOrganGameManager.GetComponent<FindTheOrganGameManager>().OnPlayButtonPoke();
+            findTheOrganGameManager.GetComponent<FindTheOrganGameManager>().RestartGame();
         }
         else
         {
-            Debug.LogWarning("FindTheOrganGameManager not assigned di ButtonManager!");
+            Debug.LogWarning("FindTheOrganGameManager belum di-assign!");
         }
     }
 
+    // 🇬🇧 Set bahasa Inggris + mulai ulang
+    public void SetLanguageToEnglish()
+    {
+        var organGame = findTheOrganGameManager.GetComponent<FindTheOrganGameManager>();
+        if (organGame != null)
+        {
+            organGame.SetLanguage("english");
+            StartFindTheOrganGame();
+        }
+    }
+
+    // 🇮🇩 Set bahasa Indonesia + mulai ulang
+    public void SetLanguageToIndonesian()
+    {
+        var organGame = findTheOrganGameManager.GetComponent<FindTheOrganGameManager>();
+        if (organGame != null)
+        {
+            organGame.SetLanguage("indonesian");
+            StartFindTheOrganGame();
+        }
+    }
 }

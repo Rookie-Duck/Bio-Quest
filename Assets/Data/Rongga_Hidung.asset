@@ -16,6 +16,6 @@ MonoBehaviour:
   definition: Rongga hidung adalah ruang berongga yang terletak di bagian dalam hidung.
   function: Rongga hidung berfungsi untuk mengalirkan udara dari luar ke tenggorokan
     menuju paru paru.
-  imageSlide1: {fileID: 0}
+  imageSlide1: {fileID: 21300000, guid: e4ac3cdd9838ac94494125bcdb76d7a9, type: 3}
   imageSlide2: {fileID: 0}
   videoClip: {fileID: 0}

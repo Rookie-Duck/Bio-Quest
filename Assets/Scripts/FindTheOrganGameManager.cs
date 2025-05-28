@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Oculus.Interaction;
+using System.Linq;
 
 public class FindTheOrganGameManager : MonoBehaviour
 {
@@ -24,12 +26,21 @@ public class FindTheOrganGameManager : MonoBehaviour
     private TextMeshProUGUI timeText;
     private TextMeshProUGUI resultText;
 
+
     private float startTime;
     private float currentTime;
     private int currentQuestionIndex = 0;
     private int correctCount = 0;
     private bool gameRunning = false;
     private bool waitingNext = false;
+
+    public enum Language
+    {
+        English,
+        Indonesian
+    }
+
+    [SerializeField] private Language currentLanguage = Language.English;
 
     private List<string> organTags = new List<string>
     {
@@ -42,9 +53,15 @@ public class FindTheOrganGameManager : MonoBehaviour
         if (currentUI != null) Destroy(currentUI);
     }
 
-    public void OnPlayButtonPoke()
+    public void RestartGame()
     {
-        // Reset dan destroy UI sebelumnya
+        StartCoroutine(RestartRoutine());
+    }
+
+    private IEnumerator RestartRoutine()
+    {
+        yield return null; // Tunggu 1 frame untuk hindari race condition tombol
+
         if (currentUI != null) Destroy(currentUI);
 
         StopAllCoroutines();
@@ -57,39 +74,49 @@ public class FindTheOrganGameManager : MonoBehaviour
         gameRunning = false;
         waitingNext = false;
 
+        ShuffleOrganTags();
+
         currentUI = Instantiate(uiStartPrefab, uiSpawnPoint.position, uiSpawnPoint.rotation);
 
-        // Cek apakah child path benar
-        Transform qTransform = currentUI.transform.Find("[Panel]_Background/[Text]_Question");
-        Transform tTransform = currentUI.transform.Find("[Panel]_Background/[Text]_Time_Field");
+        questionText = currentUI.transform.Find("[Panel]_Background/[Text]_Question")?.GetComponent<TextMeshProUGUI>();
+        timeText = currentUI.transform.Find("[Panel]_Background/[Text]_Time_Field")?.GetComponent<TextMeshProUGUI>();
 
-        if (qTransform == null || tTransform == null)
+        if (questionText == null || timeText == null)
         {
-            Debug.LogError("UI path not found in uiStartPrefab! Periksa prefab path-nya.");
-            return;
+            Debug.LogError("UI path tidak lengkap!");
+            yield break;
         }
-
-        questionText = qTransform.GetComponent<TextMeshProUGUI>();
-        timeText = tTransform.GetComponent<TextMeshProUGUI>();
 
         StartCoroutine(CountdownAndStart());
     }
 
+    private void ShuffleOrganTags()
+    {
+        for (int i = 0; i < organTags.Count; i++)
+        {
+            int randomIndex = Random.Range(i, organTags.Count);
+            var temp = organTags[i];
+            organTags[i] = organTags[randomIndex];
+            organTags[randomIndex] = temp;
+        }
+    }
 
     IEnumerator CountdownAndStart()
     {
-        int count = 3;
-        while (count > 0)
-        {
-            questionText.text = count.ToString();
+        timeText.text = "3";
 
-            sfxSource.Stop();                    // matikan yang sedang bunyi
-            sfxSource.clip = countdownClip;      // assign clip
-            sfxSource.Play();                    // play manual (tanpa OneShot)
+        sfxSource.Stop();
+        sfxSource.clip = countdownClip;
+        sfxSource.loop = false;
+        sfxSource.Play();
 
-            yield return new WaitForSecondsRealtime(1f);
-            count--;
-        }
+        yield return new WaitForSecondsRealtime(1f);
+        timeText.text = "2";
+        yield return new WaitForSecondsRealtime(1f);
+        timeText.text = "1";
+        yield return new WaitForSecondsRealtime(1f);
+        timeText.text = "0";
+        yield return new WaitForSecondsRealtime(1f);
 
         startTime = Time.time;
         gameRunning = true;
@@ -101,7 +128,6 @@ public class FindTheOrganGameManager : MonoBehaviour
         SetNextQuestion();
         StartCoroutine(UpdateTimer());
     }
-
 
     private IEnumerator UpdateTimer()
     {
@@ -127,7 +153,8 @@ public class FindTheOrganGameManager : MonoBehaviour
         }
 
         string currentTag = organTags[currentQuestionIndex];
-        questionText.text = currentTag;
+        string displayedAlias = GetRandomAlias(currentTag);
+        questionText.text = displayedAlias;
         questionText.color = Color.white;
     }
 
@@ -137,7 +164,7 @@ public class FindTheOrganGameManager : MonoBehaviour
 
         string expectedTag = organTags[currentQuestionIndex];
 
-        if (tag == expectedTag)
+        if (IsTagCorrect(tag, expectedTag))
         {
             questionText.color = Color.green;
             correctCount++;
@@ -168,19 +195,43 @@ public class FindTheOrganGameManager : MonoBehaviour
         if (currentUI != null) Destroy(currentUI);
 
         currentUI = Instantiate(uiResultPrefab, uiSpawnPoint.position, uiSpawnPoint.rotation);
-        resultText = currentUI.transform.Find("[Panel]_Background/[Text]_Result_Field").GetComponent<TextMeshProUGUI>();
-        timeText = currentUI.transform.Find("[Panel]_Background/[Text]_Time_Field").GetComponent<TextMeshProUGUI>();
+        resultText = currentUI.transform.Find("[Panel]_Background/[Text]_Result_Field")?.GetComponent<TextMeshProUGUI>();
+        timeText = currentUI.transform.Find("[Panel]_Background/[Text]_Time_Field")?.GetComponent<TextMeshProUGUI>();
 
         float duration = Time.time - startTime;
         float accuracy = (correctCount / (float)organTags.Count) * 100f;
 
         resultText.text = $"{accuracy:F1}%";
-        timeText.text = $"{duration:F1}s";
+
+        int minutes = Mathf.FloorToInt(duration / 60f);
+        int seconds = Mathf.FloorToInt(duration % 60f);
+        timeText.text = $"{minutes:00}:{seconds:00}";
 
         bgmSource.Stop();
         bgmSource.loop = false;
         bgmSource.clip = bgmWin;
         bgmSource.Play();
+
+        SetupPlayAgainButton();
+    }
+
+    private void SetupPlayAgainButton()
+    {
+        var playAgainBtn = currentUI.transform.Find("[Panel]_Background/[Panel]_Play_Again/ISDK_PokeInteraction");
+        if (playAgainBtn != null)
+        {
+            var wrapper = playAgainBtn.GetComponent<InteractableUnityEventWrapper>();
+            if (wrapper != null)
+            {
+                wrapper.WhenSelect.RemoveAllListeners();
+                wrapper.WhenSelect.AddListener(() =>
+                {
+                    var btnMgr = FindObjectOfType<ButtonManager>();
+                    if (btnMgr != null)
+                        btnMgr.StartFindTheOrganGame();
+                });
+            }
+        }
     }
 
     public void OnOrganPoked(Transform root)
@@ -205,5 +256,49 @@ public class FindTheOrganGameManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    private bool IsTagCorrect(string actualTag, string expectedTag)
+    {
+        return string.Equals(actualTag, expectedTag, System.StringComparison.OrdinalIgnoreCase);
+    }
+
+    private string GetRandomAlias(string tag)
+    {
+        if (!organAliasMap.ContainsKey(tag)) return tag;
+
+        var list = currentLanguage == Language.English
+            ? organAliasMap[tag].english
+            : organAliasMap[tag].indonesian;
+
+        if (list.Count > 0)
+            return list[Random.Range(0, list.Count)];
+
+        return tag;
+    }
+
+    private Dictionary<string, (List<string> english, List<string> indonesian)> organAliasMap = new Dictionary<string, (List<string>, List<string>)>()
+    {
+        { "Brain", (new List<string>{ "Brain" }, new List<string>{ "Otak" }) },
+        { "NoseCavity", (new List<string>{ "Nose Cavity" }, new List<string>{ "Hidung", "Rongga Hidung" }) },
+        { "OralCavity", (new List<string>{ "Oral Cavity" }, new List<string>{ "Mulut", "Rongga Mulut" }) },
+        { "Trachea", (new List<string>{ "Trachea" }, new List<string>{ "Tenggorokan" }) },
+        { "Lungs", (new List<string>{ "Lungs" }, new List<string>{ "Paru-Paru" }) },
+        { "Heart", (new List<string>{ "Heart" }, new List<string>{ "Jantung" }) },
+        { "Liver", (new List<string>{ "Liver" }, new List<string>{ "Hati" }) },
+        { "Stomach", (new List<string>{ "Stomach" }, new List<string>{ "Lambung" }) },
+        { "Gallbladder", (new List<string>{ "Gallbladder" }, new List<string>{ "Kantung Empedu" }) },
+        { "Pancreas", (new List<string>{ "Pancreas" }, new List<string>{ "Pankreas" }) },
+        { "Kidney", (new List<string>{ "Kidney" }, new List<string>{ "Ginjal" }) },
+        { "LargeIntestine", (new List<string>{ "Large Intestine" }, new List<string>{ "Usus Besar" }) },
+        { "SmallIntestine", (new List<string>{ "Small Intestine" }, new List<string>{ "Usus Kecil" }) }
+    };
+
+    public void SetLanguage(string lang)
+    {
+        if (lang.ToLower() == "english")
+            currentLanguage = Language.English;
+        else if (lang.ToLower() == "indonesian")
+            currentLanguage = Language.Indonesian;
     }
 }
