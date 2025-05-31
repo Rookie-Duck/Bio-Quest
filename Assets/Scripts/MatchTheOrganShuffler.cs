@@ -45,21 +45,68 @@ public class MatchTheOrganShuffler : MonoBehaviour
 
     public void ShuffleOrgans()
     {
-        usedPositions.Clear();
+        const int maxRetries = 5;
+        bool success = false;
+
+        for (int attempt = 0; attempt < maxRetries && !success; attempt++)
+        {
+            success = TryShuffleOnce();
+        }
+
+        if (!success)
+        {
+            Debug.LogWarning("Gagal mengacak semua organ setelah beberapa percobaan.");
+        }
+    }
+
+    private bool TryShuffleOnce()
+    {
+        List<Vector3> usedPositions = new List<Vector3>();
+        float minDistance = 0.12f;
+        int maxAttempts = 100;
+        bool allSuccess = true;
+
+        Bounds bounds = shuffleArea.bounds;
 
         foreach (Transform organ in organsToShuffle)
         {
-            Vector3 newPosition = GetValidRandomPosition();
+            bool found = false;
 
-            if (newPosition != Vector3.zero)
+            for (int i = 0; i < maxAttempts; i++)
             {
-                organ.localPosition = newPosition;
+                Vector3 randomPoint = new Vector3(
+                    Random.Range(bounds.min.x, bounds.max.x),
+                    Random.Range(bounds.min.y, bounds.max.y),
+                    Random.Range(bounds.min.z, bounds.max.z)
+                );
+
+                bool tooClose = false;
+                foreach (var used in usedPositions)
+                {
+                    if (Vector3.Distance(randomPoint, used) < minDistance)
+                    {
+                        tooClose = true;
+                        break;
+                    }
+                }
+
+                if (!tooClose)
+                {
+                    organ.position = randomPoint;
+                    usedPositions.Add(randomPoint);
+                    found = true;
+                    break;
+                }
             }
-            else
+
+            if (!found)
             {
-                Debug.LogWarning($"Organ {organ.name} gagal diacak setelah {maxAttempts} percobaan.");
+                Debug.LogWarning($"Gagal cari posisi untuk organ: {organ.name}");
+                allSuccess = false;
             }
         }
+
+        return allSuccess;
     }
 
     private Vector3 GetValidRandomPosition()
