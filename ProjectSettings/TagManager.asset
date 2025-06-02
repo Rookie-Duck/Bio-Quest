@@ -35,6 +35,19 @@ TagManager:
   - Kidney
   - LargeIntestine
   - SmallIntestine
+  - Socket_Brain
+  - Socket_NoseCavity
+  - Socket_OralCavity
+  - Socket_Trachea
+  - Socket_Lungs
+  - Socket_Heart
+  - Socket_Liver
+  - Socket_Stomach
+  - Socket_Gallbladder
+  - Socket_Pancreas
+  - Socket_Kidney
+  - Socket_LargeIntestine
+  - Socket_SmallIntestine
   layers:
   - Default
   - TransparentFX

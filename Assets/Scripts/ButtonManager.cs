@@ -5,6 +5,7 @@ using UnityEngine;
 public class ButtonManager : MonoBehaviour
 {
     public MatchTheOrganShuffler organShuffler;
+    public MatchTheOrganGameManager organGameManager;
 
     public Transform humanOrgansParent;
     public GameObject findTheOrganGameManager;
@@ -139,11 +140,20 @@ public class ButtonManager : MonoBehaviour
     }
 
     // Mode: Match The Organ
-    public void ShuffleOrgansFromButton()
+    public void StartOrganPuzzle()
     {
-        if (organShuffler != null)
-            organShuffler.ShuffleOrgans();
-        else
-            Debug.LogWarning("Shuffler belum di-assign!");
+        organShuffler.ShuffleOrgans();
+        organGameManager.StartMatchOrganGame();
+    }
+
+    public void FinishOrganPuzzle()
+    {
+        organGameManager.OnFinish();
+    }
+
+    public void CancelOrganPuzzle()
+    {
+        organGameManager.OnCancel();
+        organShuffler.ResetAllOrgans();
     }
 }

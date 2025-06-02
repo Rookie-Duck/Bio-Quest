@@ -3,13 +3,23 @@ using UnityEngine;
 
 public class MatchTheOrganShuffler : MonoBehaviour
 {
-    public Transform organParent; // Parent dari semua organ
-    public BoxCollider shuffleArea; // Area tempat organ akan diacak
-    public float minDistance = 0.15f; // Jarak minimum antar organ
-    public int maxAttempts = 20; // Usaha maksimal mencari posisi yang tidak tabrakan
+    [Header("Shuffle Settings")]
+    public Transform organParent;
+    public BoxCollider shuffleArea;
+    public float minDistance = 0.15f;
+    public int maxAttempts = 20;
+
+    [Header("Optional Object to Reset")]
+    [SerializeField] private Transform bodyFront;
 
     private List<Transform> organsToShuffle = new List<Transform>();
-    private List<Vector3> usedPositions = new List<Vector3>();
+    public List<Transform> OrgansToShuffle => organsToShuffle;
+
+    private Vector3 initialBodyFrontPos;
+    private Quaternion initialBodyFrontRot;
+
+    private Dictionary<Transform, Vector3> originalPositions = new();
+    private Dictionary<Transform, Quaternion> originalRotations = new();
 
     private readonly string[] organTags = new string[]
     {
@@ -21,6 +31,18 @@ public class MatchTheOrganShuffler : MonoBehaviour
     {
         organsToShuffle.Clear();
         AddOrgansRecursive(organParent);
+
+        foreach (Transform organ in organsToShuffle)
+        {
+            originalPositions[organ] = organ.position;
+            originalRotations[organ] = organ.rotation;
+        }
+
+        if (bodyFront != null)
+        {
+            initialBodyFrontPos = bodyFront.position;
+            initialBodyFrontRot = bodyFront.rotation;
+        }
     }
 
     void AddOrgansRecursive(Transform parent)
@@ -38,7 +60,7 @@ public class MatchTheOrganShuffler : MonoBehaviour
 
             if (t.childCount > 0)
             {
-                AddOrgansRecursive(t); // cek anak-anaknya juga
+                AddOrgansRecursive(t);
             }
         }
     }
@@ -62,11 +84,8 @@ public class MatchTheOrganShuffler : MonoBehaviour
     private bool TryShuffleOnce()
     {
         List<Vector3> usedPositions = new List<Vector3>();
-        float minDistance = 0.12f;
-        int maxAttempts = 100;
-        bool allSuccess = true;
-
         Bounds bounds = shuffleArea.bounds;
+        bool allSuccess = true;
 
         foreach (Transform organ in organsToShuffle)
         {
@@ -109,39 +128,20 @@ public class MatchTheOrganShuffler : MonoBehaviour
         return allSuccess;
     }
 
-    private Vector3 GetValidRandomPosition()
+    public void ResetAllOrgans()
     {
-        Bounds bounds = shuffleArea.bounds;
-        Vector3 localCenter = shuffleArea.transform.InverseTransformPoint(bounds.center);
-        Vector3 localSize = bounds.size;
-
-        for (int attempt = 0; attempt < maxAttempts; attempt++)
+        foreach (Transform organ in organsToShuffle)
         {
-            Vector3 localPos = new Vector3(
-                Random.Range(-localSize.x / 2f, localSize.x / 2f),
-                Random.Range(-localSize.y / 2f, localSize.y / 2f),
-                Random.Range(-localSize.z / 2f, localSize.z / 2f)
-            );
-
-            Vector3 worldPos = shuffleArea.transform.TransformPoint(localCenter + localPos);
-
-            if (IsFarEnough(worldPos))
-            {
-                usedPositions.Add(worldPos);
-                return organParent.InverseTransformPoint(worldPos); // convert ke local position
-            }
+            if (originalPositions.TryGetValue(organ, out var pos))
+                organ.position = pos;
+            if (originalRotations.TryGetValue(organ, out var rot))
+                organ.rotation = rot;
         }
 
-        return Vector3.zero;
-    }
-
-    private bool IsFarEnough(Vector3 pos)
-    {
-        foreach (var used in usedPositions)
+        if (bodyFront != null)
         {
-            if (Vector3.Distance(pos, used) < minDistance)
-                return false;
+            bodyFront.position = initialBodyFrontPos;
+            bodyFront.rotation = initialBodyFrontRot;
         }
-        return true;
     }
 }
