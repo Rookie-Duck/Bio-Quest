@@ -18,18 +18,23 @@ public class MatchTheOrganGameManager : MonoBehaviour
     {
         if (gameRunning) return;
 
+        // Clear old results so UI doesn't show leftover data
+        MatchTheOrganResultChecker.ClearResults();
+
         startCanvas.SetActive(true);
         resultCanvas.SetActive(false);
-
         gameRunning = true;
     }
 
+
     public void OnCancel()
     {
+        MatchTheOrganResultChecker.ClearResults();
         startCanvas.SetActive(false);
         resultCanvas.SetActive(false);
         gameRunning = false;
     }
+
 
     public void OnFinish()
     {
@@ -41,7 +46,7 @@ public class MatchTheOrganGameManager : MonoBehaviour
 
     private void ShowResults()
     {
-        var results = resultChecker.GetOrganResults();
+        var results = MatchTheOrganResultChecker.GetResults();
         resultUI.ShowResults(results);
     }
 }

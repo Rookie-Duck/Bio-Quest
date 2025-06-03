@@ -44,7 +44,13 @@ public class MatchTheOrganResultUI : MonoBehaviour
 
                 var result = allResults[index];
                 resultIcons[i].sprite = result.isCorrect ? correctSprite : wrongSprite;
-                resultTexts[i].text = result.organTag;
+
+                resultTexts[i].text =
+                    result.attachedTag == "None"
+                        ? $"{result.organTag} (Empty)"
+                        : result.isCorrect
+                            ? result.organTag
+                            : $"{result.attachedTag} → {result.organTag}";
             }
             else
             {

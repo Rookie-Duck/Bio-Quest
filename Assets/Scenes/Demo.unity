@@ -6101,6 +6101,135 @@ MonoBehaviour:
   installationRoutineCheckpoint:
     _installationRoutineId: 
     _installationVariants: []
+--- !u!1 &203843803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 203843804}
+  - component: {fileID: 203843808}
+  - component: {fileID: 203843807}
+  - component: {fileID: 203843806}
+  - component: {fileID: 203843805}
+  - component: {fileID: 203843809}
+  m_Layer: 0
+  m_Name: '[Snap Interactable]_Brain'
+  m_TagString: Socket_Brain
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &203843804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203843803}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000037748954, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.014388566, y: 4.351257, z: 0.027936697}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 724205176668804953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &203843805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203843803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1397d30d2aecb5a4d9d645617f571f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapInteractable: {fileID: 203843808}
+  hoverMaterial: {fileID: 2100000, guid: 09bce3dde6375be4d993177ab8c2cc2e, type: 2}
+--- !u!65 &203843806
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203843803}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.00932819, y: 0.00501401, z: 0.0073631792}
+  m_Center: {x: -0.00012589851, y: 0.00042094453, z: 0.000040572602}
+--- !u!54 &203843807
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203843803}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &203843808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203843803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06bd28341d3e86a4c8ab52b1a0269c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactorFilters: []
+  _maxInteractors: -1
+  _maxSelectingInteractors: 1
+  _data: {fileID: 0}
+  _rigidbody: {fileID: 203843807}
+  _snapPoseDelegate: {fileID: 0}
+  _movementProvider: {fileID: 0}
+--- !u!114 &203843809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203843803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &205167724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33338,20 +33467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  organSockets:
-  - {fileID: 3886453031625336446}
-  - {fileID: 2725287188697478975}
-  - {fileID: 5002729944647421149}
-  - {fileID: 4850588977406752578}
-  - {fileID: 8147034627393268648}
-  - {fileID: 992032655808539062}
-  - {fileID: 1578465716974085916}
-  - {fileID: 2900940567062076927}
-  - {fileID: 3449407888641491661}
-  - {fileID: 2548920174785465265}
-  - {fileID: 2375345111530331440}
-  - {fileID: 7153637705221111146}
-  - {fileID: 2100040251325806194}
 --- !u!1001 &1186395034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57019,6 +57134,7 @@ GameObject:
   - component: {fileID: 594626486447576304}
   - component: {fileID: 1189782221089538149}
   - component: {fileID: 5211058556232057238}
+  - component: {fileID: 8294977510894713507}
   m_Layer: 0
   m_Name: '[Snap Interactable]_Pancreas'
   m_TagString: Socket_Pancreas
@@ -57404,7 +57520,7 @@ Transform:
   m_Children:
   - {fileID: 2491175815550675965}
   - {fileID: 4083086255439335991}
-  - {fileID: 7415690128539739938}
+  - {fileID: 203843804}
   - {fileID: 7633780112855592872}
   - {fileID: 6756095603642032490}
   - {fileID: 2167946724705086502}
@@ -57478,26 +57594,6 @@ MonoBehaviour:
   _releaseDistance: 0
   _resetGrabOnGrabsUpdated: 1
   _physicsGrabbable: {fileID: 0}
---- !u!1 &802371339768728454
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7415690128539739938}
-  - component: {fileID: 4668877215219989742}
-  - component: {fileID: 2126381302835046591}
-  - component: {fileID: 7054662175016205981}
-  - component: {fileID: 7683108221358770969}
-  m_Layer: 0
-  m_Name: '[Snap Interactable]_Brain'
-  m_TagString: Socket_Brain
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!114 &819671809454474782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57587,12 +57683,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0937508, y: 1.5481994, z: 0.41128084}
-  m_Center: {x: -0.14496994, y: -0.2518384, z: 0.0016779407}
+  m_Size: {x: 0.059622712, y: 0.08455025, z: 0.022684984}
+  m_Center: {x: -0.0080604665, y: -0.013590388, z: -9.313226e-10}
 --- !u!4 &960913213720405506
 Transform:
   m_ObjectHideFlags: 0
@@ -57819,12 +57915,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1678243, y: 0.44058263, z: 0.7432012}
-  m_Center: {x: 0.006375858, y: -0.026652822, z: -0.079004675}
+  m_Size: {x: 0.012578579, y: 0.012477299, z: 0.07399315}
+  m_Center: {x: 0.0004969677, y: -0.00077735586, z: -0.0078497045}
 --- !u!1 &1242446448256962705
 GameObject:
   m_ObjectHideFlags: 0
@@ -58679,33 +58775,6 @@ Transform:
   - {fileID: 5525556777738677020}
   m_Father: {fileID: 724205176668804953}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2126381302835046591
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802371339768728454}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!4 &2167946724705086502
 Transform:
   m_ObjectHideFlags: 0
@@ -58736,6 +58805,7 @@ GameObject:
   - component: {fileID: 8167049539383225816}
   - component: {fileID: 5609398411482556274}
   - component: {fileID: 8997539167831237632}
+  - component: {fileID: 8997539167831237633}
   m_Layer: 0
   m_Name: '[Snap Interactable]_Kidney'
   m_TagString: Socket_Kidney
@@ -59110,6 +59180,7 @@ GameObject:
   - component: {fileID: 2451592570329129995}
   - component: {fileID: 8071198065292947453}
   - component: {fileID: 698011375865400954}
+  - component: {fileID: 8071198065292947454}
   m_Layer: 0
   m_Name: '[Snap Interactable]_Small_Intestine'
   m_TagString: Socket_SmallIntestine
@@ -59220,6 +59291,7 @@ GameObject:
   - component: {fileID: 6295207341453122028}
   - component: {fileID: 3202099254459808762}
   - component: {fileID: 6214771053250473303}
+  - component: {fileID: 8530670507592484980}
   m_Layer: 0
   m_Name: '[Snap Interactable]_Heart'
   m_TagString: Socket_Heart
@@ -59242,12 +59314,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5464941, y: 0.96793175, z: 1.39975}
-  m_Center: {x: 0.015449501, y: -0.16521572, z: 0.073049314}
+  m_Size: {x: 0.5464941, y: 0.97403973, z: 1.408911}
+  m_Center: {x: 0.015449494, y: 0.01494959, z: 0.18450695}
 --- !u!23 &2759333124851386946
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -59303,6 +59375,7 @@ GameObject:
   - component: {fileID: 5719702961233846274}
   - component: {fileID: 5043229031599008904}
   - component: {fileID: 6141624442158162283}
+  - component: {fileID: 6141624442158162284}
   m_Layer: 0
   m_Name: '[Snap Interactable]_Stomach'
   m_TagString: Socket_Stomach
@@ -59608,12 +59681,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6592853, y: 2.8576307, z: 1.9635255}
-  m_Center: {x: 0.016206212, y: -0.5470047, z: 0.05443143}
+  m_Size: {x: 0.0066347746, y: 0.028726906, z: 0.019826297}
+  m_Center: {x: 0.00012865686, y: -0.005554214, z: 0.00052656885}
 --- !u!33 &3071280860175105880
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -59714,7 +59787,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -59913,6 +59986,7 @@ GameObject:
   - component: {fileID: 5929985958596321318}
   - component: {fileID: 8610304472043381408}
   - component: {fileID: 6541326653727272284}
+  - component: {fileID: 8610304472043381409}
   m_Layer: 0
   m_Name: '[Snap Interactable]_Gallbladder'
   m_TagString: Socket_Gallbladder
@@ -60113,7 +60187,7 @@ Transform:
   m_GameObject: {fileID: 2808667612407310974}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0033119763, y: 0.005602419, z: -0.1323544, w: 0.99118114}
-  m_LocalPosition: {x: 0.0059008608, y: -0.35110116, z: 0.002768635}
+  m_LocalPosition: {x: 0.002, y: -0.348, z: -0.343}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -60606,25 +60680,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4668877215219989742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802371339768728454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06bd28341d3e86a4c8ab52b1a0269c7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactorFilters: []
-  _maxInteractors: -1
-  _maxSelectingInteractors: 1
-  _data: {fileID: 0}
-  _rigidbody: {fileID: 2126381302835046591}
-  _snapPoseDelegate: {fileID: 0}
-  _movementProvider: {fileID: 0}
 --- !u!114 &4706748422021693491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60894,12 +60949,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0052366, y: 0.8004099, z: 0.7780544}
-  m_Center: {x: 0.4441035, y: -0.10572285, z: 0.0021313317}
+  m_Size: {x: 0.05242518, y: 0.04177789, z: 0.040712647}
+  m_Center: {x: 0.023243131, y: -0.005557064, z: -0.0000000018626451}
 --- !u!4 &4913045608073524941
 Transform:
   m_ObjectHideFlags: 0
@@ -61026,12 +61081,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4731928, y: 1.3835963, z: 1.2417659}
-  m_Center: {x: 0.07811626, y: 0.010302759, z: -0.13631439}
+  m_Size: {x: 0.015244691, y: 0.044113807, z: 0.039310224}
+  m_Center: {x: 0.0024260054, y: 0.00046440028, z: -0.0042694826}
 --- !u!114 &5053619652420152775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61084,6 +61139,7 @@ GameObject:
   - component: {fileID: 2393477131763076379}
   - component: {fileID: 3064662404583867347}
   - component: {fileID: 4243317391031287968}
+  - component: {fileID: 7864262898554248015}
   m_Layer: 0
   m_Name: '[Snap Interactable]_Large_Intestine'
   m_TagString: Socket_LargeIntestine
@@ -61282,7 +61338,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -61340,12 +61396,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15605088, y: 0.50591826, z: 0.81208026}
-  m_Center: {x: 0.00008384814, y: 0.025043776, z: -0.00034077096}
+  m_Size: {x: 0.013269508, y: 0.035118967, z: 0.055656925}
+  m_Center: {x: 0.000084902626, y: 0.0016823839, z: -0.0000000037252903}
 --- !u!1 &5629800981384466560
 GameObject:
   m_ObjectHideFlags: 0
@@ -61659,12 +61715,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.19994372, y: 1.4219146, z: 0.78119624}
-  m_Center: {x: 0.11606111, y: 0.35556594, z: -0.000047823418}
+  m_Size: {x: 0.024186658, y: 0.1644898, z: 0.09163998}
+  m_Center: {x: 0.013045062, y: 0.04121046, z: -0.00004774332}
 --- !u!65 &6091848329941887391
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61700,6 +61756,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapInteractable: {fileID: 1974666157943548669}
   hoverMaterial: {fileID: 2100000, guid: 09bce3dde6375be4d993177ab8c2cc2e, type: 2}
+--- !u!114 &6141624442158162284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2808667612407310974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6214771053250473303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62221,27 +62289,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7054662175016205981
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802371339768728454}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4755186, y: 0.7797912, z: 1.1531879}
-  m_Center: {x: -0.020744978, y: 0.07180586, z: 0.0063826796}
 --- !u!4 &7060865367136537425
 Transform:
   m_ObjectHideFlags: 0
@@ -62289,6 +62336,7 @@ GameObject:
   - component: {fileID: 196953954054500862}
   - component: {fileID: 2749760843459010671}
   - component: {fileID: 5821338858646187234}
+  - component: {fileID: 8180198610611057560}
   m_Layer: 0
   m_Name: '[Snap Interactable]_Liver'
   m_TagString: Socket_Liver
@@ -62431,6 +62479,7 @@ GameObject:
   - component: {fileID: 6900139151219066666}
   - component: {fileID: 4885628490677388852}
   - component: {fileID: 8189726784638762506}
+  - component: {fileID: 8189726784638762507}
   m_Layer: 0
   m_Name: '[Snap Interactable]_Oral_Cavity'
   m_TagString: Socket_OralCavity
@@ -62502,21 +62551,6 @@ MonoBehaviour:
   _releaseDistance: 0
   _resetGrabOnGrabsUpdated: 1
   _physicsGrabbable: {fileID: 0}
---- !u!4 &7415690128539739938
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802371339768728454}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.000000037748954, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.014388566, y: 4.351257, z: 0.027936697}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 724205176668804953}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7559959675327785316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62656,20 +62690,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7683108221358770969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802371339768728454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1397d30d2aecb5a4d9d645617f571f76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  snapInteractable: {fileID: 4668877215219989742}
-  hoverMaterial: {fileID: 2100000, guid: 09bce3dde6375be4d993177ab8c2cc2e, type: 2}
 --- !u!23 &7708474810912161812
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62791,6 +62811,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 724205176668804953}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7864262898554248015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5105305186585423217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7891032707293330877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62940,6 +62972,7 @@ GameObject:
   - component: {fileID: 7113921390653119576}
   - component: {fileID: 5509958177393154816}
   - component: {fileID: 4706748422021693491}
+  - component: {fileID: 8006124476605988557}
   m_Layer: 0
   m_Name: '[Snap Interactable]_Lungs'
   m_TagString: Socket_Lungs
@@ -62947,6 +62980,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8006124476605988557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8006124476605988556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &8016563006484265495
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62983,12 +63028,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4525392, y: 1.4965947, z: 1.3998811}
-  m_Center: {x: -0.05043702, y: 0.031480845, z: 0.029184017}
+  m_Size: {x: 0.026507812, y: 0.08832194, z: 0.08233643}
+  m_Center: {x: -0.0030985968, y: 0.0018959828, z: 0.0015714765}
+--- !u!114 &8071198065292947454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496161779745765728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8075379865940066806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63120,6 +63177,18 @@ MonoBehaviour:
   _rigidbody: {fileID: 196953954054500862}
   _snapPoseDelegate: {fileID: 0}
   _movementProvider: {fileID: 0}
+--- !u!114 &8180198610611057560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7103296926492891699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8189726784638762506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63134,6 +63203,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapInteractable: {fileID: 6371713328547298406}
   hoverMaterial: {fileID: 2100000, guid: 09bce3dde6375be4d993177ab8c2cc2e, type: 2}
+--- !u!114 &8189726784638762507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7319529440557761657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8294977510894713506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63148,11 +63229,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactorFilters: []
   _maxInteractors: -1
-  _maxSelectingInteractors: -1
+  _maxSelectingInteractors: 1
   _data: {fileID: 0}
   _rigidbody: {fileID: 594626486447576304}
   _snapPoseDelegate: {fileID: 0}
   _movementProvider: {fileID: 0}
+--- !u!114 &8294977510894713507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113267721336134439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8311832555603676607
 GameObject:
   m_ObjectHideFlags: 0
@@ -63184,6 +63277,7 @@ GameObject:
   - component: {fileID: 4447488353221280038}
   - component: {fileID: 922110862366068978}
   - component: {fileID: 9146157531338033607}
+  - component: {fileID: 9146157531338033608}
   m_Layer: 0
   m_Name: '[Snap Interactable]_Nose_Cavity'
   m_TagString: Socket_NoseCavity
@@ -63248,6 +63342,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 724205176668804953}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8530670507592484980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2739555500930295773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8565911694925835883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63304,12 +63410,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.46605754, y: 0.7561207, z: 0.37916076}
-  m_Center: {x: -0.078376666, y: -0.040478118, z: 0.06757389}
+  m_Size: {x: 0.0051285517, y: 0.008327905, z: 0.0051858397}
+  m_Center: {x: -0.00088949874, y: -0.00046696374, z: 0.0008663408}
+--- !u!114 &8610304472043381409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534689729249091726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8618295793764560489
 GameObject:
   m_ObjectHideFlags: 0
@@ -63512,6 +63630,7 @@ GameObject:
   - component: {fileID: 6050401386116848478}
   - component: {fileID: 6060902987512991388}
   - component: {fileID: 4737872733326263286}
+  - component: {fileID: 9086513558079722392}
   m_Layer: 0
   m_Name: '[Snap Interactable]_Trachea'
   m_TagString: Socket_Trachea
@@ -63533,6 +63652,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapInteractable: {fileID: 7112961230546041701}
   hoverMaterial: {fileID: 2100000, guid: 09bce3dde6375be4d993177ab8c2cc2e, type: 2}
+--- !u!114 &8997539167831237633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175343387066877645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9019037714101070906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63571,6 +63702,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 724205176668804953}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9086513558079722392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973923498702814490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &9115814080076475035
 Transform:
   m_ObjectHideFlags: 0
@@ -63641,6 +63784,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapInteractable: {fileID: 8075379865940066806}
   hoverMaterial: {fileID: 2100000, guid: 09bce3dde6375be4d993177ab8c2cc2e, type: 2}
+--- !u!114 &9146157531338033608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8398208010229260579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458b7d4c68aa7c4a8989984f29d3c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &9203497681281744210
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,39 +1,54 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Oculus.Interaction;
 
 public class MatchTheOrganResultChecker : MonoBehaviour
 {
-    public List<SnapInteractor> organSockets; // Assign via Inspector
-
     [System.Serializable]
     public class OrganResult
     {
-        public string organTag;
+        public string organTag;    // e.g., "Brain"
+        public string attachedTag; // e.g., "Brain" if matched
         public bool isCorrect;
     }
 
-    public List<OrganResult> GetOrganResults()
+    public static List<OrganResult> globalResults = new List<OrganResult>();
+
+    private void OnTriggerEnter(Collider other)
     {
-        List<OrganResult> results = new List<OrganResult>();
+        string socketTag = gameObject.tag; // e.g., "Socket_Brain"
+        string expectedTag = socketTag.Replace("Socket_", "");
 
-        foreach (SnapInteractor socket in organSockets)
+        string enteredTag = other.gameObject.tag; // e.g., "Brain"
+
+        // Hindari duplikat jika sudah pernah masuk
+        globalResults.RemoveAll(r => r.organTag == expectedTag);
+
+        OrganResult result = new OrganResult
         {
-            GameObject snappedObj = socket.HasInteractable ? socket.Interactable.gameObject : null;
+            organTag = expectedTag,
+            attachedTag = enteredTag,
+            isCorrect = enteredTag == expectedTag
+        };
 
-            string socketTag = socket.gameObject.tag;                // e.g., "Socket_Brain"
-            string expectedTag = socketTag.Replace("Socket_", "");   // e.g., "Brain"
-            string organTag = snappedObj != null ? snappedObj.tag : "None";
-
-            bool isCorrect = organTag == expectedTag;
-
-            results.Add(new OrganResult
-            {
-                organTag = expectedTag,
-                isCorrect = isCorrect
-            });
-        }
-
-        return results;
+        globalResults.Add(result);
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        string socketTag = gameObject.tag;
+        string expectedTag = socketTag.Replace("Socket_", "");
+
+        globalResults.RemoveAll(r => r.organTag == expectedTag);
+    }
+
+    public static List<OrganResult> GetResults()
+    {
+        return globalResults;
+    }
+
+    public static void ClearResults()
+    {
+        globalResults.Clear();
+    }
+
 }
