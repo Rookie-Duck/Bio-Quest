@@ -1,98 +1,163 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [System.Serializable]
-    public struct UIPanel
-    {
-        public string panelName;
-        public GameObject panelObject;
-    }
+    [Header("Canvas References")]
+    public GameObject mainMenuCanvas;
+    public GameObject playCanvas;
+    public GameObject exitCanvas;
+
+    [Header("Play Mode Panels & Images")]
+    public GameObject[] modePanels;         // [Panel]_Mode_1, [Panel]_Mode_2
+    public Image[] modeImages;              // Image inside the panels
+
+    [Header("Play Mode Navigation Buttons")]
+    public GameObject nextButton;
+    public GameObject prevButton;
+    public GameObject closeButton;
+
+    [Header("Camera Rig Control")]
+    public Transform rigTransform; // assign XR Rig / OVRCameraRig di Inspector
+
+    [Header("Sprites for Modes")]
+    public List<Sprite> modeSprites;        // Assign 4 sprites (for each mode)
 
     [System.Serializable]
-    public struct UIImageSwap
+    public class ModeData
     {
-        public string key;
-        public Image targetImage;
-        public Sprite sprite;
+        public Vector3 position;
+        public float yRotation;
+        public bool isInteractable;
     }
 
-    [System.Serializable]
-    public struct UITextSwap
+    public List<ModeData> modeDataList = new List<ModeData>(); // 4 entries
+
+    private int currentPage = 0;
+    private const int modesPerPage = 2;
+
+    // Called by ButtonManager
+    public void OnPlayPressed()
     {
-        public string key;
-        public TextMeshProUGUI targetText;
-        public string newText;
+        StartCoroutine(SwitchCanvas(mainMenuCanvas, playCanvas));
+        currentPage = 0;
+        UpdatePlayModeSlide();
     }
 
-    [Header("UI Panels")]
-    public UIPanel[] panels;
-    private Dictionary<string, GameObject> panelDict = new Dictionary<string, GameObject>();
-
-    [Header("Optional Image Swaps")]
-    public UIImageSwap[] imageSwaps;
-    private Dictionary<string, UIImageSwap> imageDict = new Dictionary<string, UIImageSwap>();
-
-    [Header("Optional Text Swaps")]
-    public UITextSwap[] textSwaps;
-    private Dictionary<string, UITextSwap> textDict = new Dictionary<string, UITextSwap>();
-
-    void Awake()
+    public void OnExitPressed()
     {
-        foreach (var p in panels)
-        {
-            if (!panelDict.ContainsKey(p.panelName))
-                panelDict.Add(p.panelName, p.panelObject);
-        }
-
-        foreach (var i in imageSwaps)
-        {
-            if (!imageDict.ContainsKey(i.key))
-                imageDict.Add(i.key, i);
-        }
-
-        foreach (var t in textSwaps)
-        {
-            if (!textDict.ContainsKey(t.key))
-                textDict.Add(t.key, t);
-        }
+        StartCoroutine(SwitchCanvas(mainMenuCanvas, exitCanvas));
     }
 
-    public void ShowPanel(string panelName)
+    public void OnCloseExitPressed()
     {
-        foreach (var pair in panelDict)
-        {
-            bool isActive = pair.Key == panelName;
-            pair.Value.SetActive(isActive);
-        }
-        Debug.Log($"[UI] Switched to panel: {panelName}");
+        StartCoroutine(SwitchCanvas(exitCanvas, mainMenuCanvas));
     }
 
-    public void SwapImage(string key)
+    public void OnClosePlayPressed()
     {
-        if (imageDict.TryGetValue(key, out var data))
-        {
-            data.targetImage.sprite = data.sprite;
-        }
+        StartCoroutine(SwitchCanvas(playCanvas, mainMenuCanvas));
     }
 
-    public void SwapText(string key)
+    public void OnExitYesPressed()
     {
-        if (textDict.TryGetValue(key, out var data))
-        {
-            data.targetText.text = data.newText;
-        }
-    }
-
-    public void QuitApp()
-    {
-        Debug.Log("Quit Game");
         Application.Quit();
     }
 
-    // Optional: Delayed transitions (for fade, etc) can be added later
+    public void OnNextSlide()
+    {
+        currentPage++;
+        UpdatePlayModeSlide();
+    }
+
+    public void OnPreviousSlide()
+    {
+        currentPage--;
+        UpdatePlayModeSlide();
+    }
+
+    private void UpdatePlayModeSlide()
+    {
+        int start = currentPage * modesPerPage;
+
+        for (int i = 0; i < modesPerPage; i++)
+        {
+            int modeIndex = start + i;
+
+            if (modeIndex < modeSprites.Count && modeIndex < modeDataList.Count)
+            {
+                modePanels[i].SetActive(true);
+                modeImages[i].sprite = modeSprites[modeIndex];
+
+                // Assign panelSlotIndex dan uiManager ke ModePanelPoke
+                ModePanelPoke poke = modePanels[i].GetComponent<ModePanelPoke>();
+                if (poke != null)
+                {
+                    poke.panelSlotIndex = i;  // slot panel dalam slide (0 atau 1)
+                    poke.uiManager = this;
+                }
+
+                // Button logic tetap seperti biasa
+                Button btn = modePanels[i].GetComponent<Button>();
+                if (btn != null)
+                {
+                    btn.onClick.RemoveAllListeners();
+
+                    if (modeDataList[modeIndex].isInteractable)
+                    {
+                        btn.interactable = true;
+                        int capturedIndex = modeIndex;
+                        btn.onClick.AddListener(() => SelectMode(capturedIndex));
+                    }
+                    else
+                    {
+                        btn.interactable = false;
+                    }
+                }
+            }
+            else
+            {
+                modePanels[i].SetActive(false);
+            }
+        }
+
+        prevButton.SetActive(currentPage > 0);
+        nextButton.SetActive((currentPage + 1) * modesPerPage < modeSprites.Count && (currentPage + 1) * modesPerPage < modeDataList.Count);
+    }
+
+    // Fungsi lama yang masih dipakai button biasa
+    public void SelectMode(int index)
+    {
+        if (index >= 0 && index < modeDataList.Count && modeDataList[index].isInteractable)
+        {
+            rigTransform.position = modeDataList[index].position;
+            rigTransform.eulerAngles = new Vector3(0, modeDataList[index].yRotation, 0);
+        }
+    }
+
+    // Fungsi baru untuk manual select mode dari panel slot dan page saat ini
+    public void ManualSelectMode(int panelSlotIndex)
+    {
+        int modeIndex = currentPage * modesPerPage + panelSlotIndex;
+
+        Debug.Log($"ManualSelectMode dipanggil: currentPage={currentPage}, panelSlotIndex={panelSlotIndex}, modeIndex={modeIndex}");
+
+        if (modeIndex >= 0 && modeIndex < modeDataList.Count && modeDataList[modeIndex].isInteractable)
+        {
+            rigTransform.position = modeDataList[modeIndex].position;
+            rigTransform.eulerAngles = new Vector3(0, modeDataList[modeIndex].yRotation, 0);
+        }
+        else
+        {
+            Debug.LogWarning($"ManualSelectMode index {modeIndex} invalid atau tidak interactable");
+        }
+    }
+
+    private System.Collections.IEnumerator SwitchCanvas(GameObject currentCanvas, GameObject nextCanvas)
+    {
+        yield return new WaitForSeconds(0.1f);
+        currentCanvas.SetActive(false);
+        nextCanvas.SetActive(true);
+    }
 }
