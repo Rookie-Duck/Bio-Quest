@@ -17,6 +17,6 @@ MonoBehaviour:
     Lambung terletak di dalam rongga perut sebelah kiri di bawah rongga dada.
   function: Lambung berfungsi sebagai gudang makanan, yang berkontraksi secara ritmik
     untuk mencampur makanan dengan enzim-enzim.
-  imageSlide1: {fileID: 0}
-  imageSlide2: {fileID: 0}
+  imageSlide1: {fileID: 21300000, guid: 3af5972652b3e454c8311f832d7b612f, type: 3}
+  imageSlide2: {fileID: 21300000, guid: e27afe01f9804f64eb3b31b3dea2068d, type: 3}
   videoClip: {fileID: 0}

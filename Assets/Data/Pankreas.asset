@@ -18,6 +18,6 @@ MonoBehaviour:
   function: Pankreas adalah organ pada sistem pencernaan yang memiliki dua fungsi
     utama yaitu menghasilkan enzim pencernaan serta beberapa hormon penting seperti
     insulin.
-  imageSlide1: {fileID: 0}
-  imageSlide2: {fileID: 0}
+  imageSlide1: {fileID: 21300000, guid: 32b7b71add573384da95e526a1c0b2af, type: 3}
+  imageSlide2: {fileID: 21300000, guid: 8ae224da6f5bade4abda7849ad10b92d, type: 3}
   videoClip: {fileID: 0}

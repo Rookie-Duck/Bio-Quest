@@ -17,6 +17,6 @@ MonoBehaviour:
     empedu.
   function: Empedu membantu mencerna lemak dan membuang sisa dari sel darah merah
     dan kolesterol.
-  imageSlide1: {fileID: 0}
-  imageSlide2: {fileID: 0}
+  imageSlide1: {fileID: 21300000, guid: a5476a154d19b9c4fa454fdda65db8aa, type: 3}
+  imageSlide2: {fileID: 21300000, guid: 324caecf0f2fb9844a33f64dd71f22ac, type: 3}
   videoClip: {fileID: 0}

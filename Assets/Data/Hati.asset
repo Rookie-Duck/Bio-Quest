@@ -17,6 +17,6 @@ MonoBehaviour:
     terbesar di tubuh dan punya dua bagian (lobus).
   function: Fungsi hati adalah membuat empedu untuk membantu pencernaan, menyimpan
     cadangan lemak dan vitamin, serta membersihkan zat racun di tubuh.
-  imageSlide1: {fileID: 0}
-  imageSlide2: {fileID: 0}
+  imageSlide1: {fileID: 21300000, guid: 44726d122c32fa84ba404bce3279da93, type: 3}
+  imageSlide2: {fileID: 21300000, guid: 10f90407df340024f99b49c4453a1dab, type: 3}
   videoClip: {fileID: 0}

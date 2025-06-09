@@ -45,12 +45,16 @@ public class MatchTheOrganResultUI : MonoBehaviour
                 var result = allResults[index];
                 resultIcons[i].sprite = result.isCorrect ? correctSprite : wrongSprite;
 
-                resultTexts[i].text =
-                    result.attachedTag == "None"
-                        ? $"{result.organTag} (Empty)"
-                        : result.isCorrect
-                            ? result.organTag
-                            : $"{result.attachedTag} → {result.organTag}";
+                // socketTag.Replace("Socket_", "") → nama organ seharusnya
+                string expectedOrgan = result.socketTag.Replace("Socket_", "");
+
+                // organTag → organ yang dipasang player
+                string attachedOrgan = result.organTag;
+
+                // Tampilkan result dengan format yang sama seperti sebelumnya
+                resultTexts[i].text = result.isCorrect
+                    ? $"{expectedOrgan} → {attachedOrgan} ✓"
+                    : $"{expectedOrgan} → {attachedOrgan} ✗";
             }
             else
             {
@@ -62,6 +66,7 @@ public class MatchTheOrganResultUI : MonoBehaviour
         prevButton.SetActive(currentPage > 0);
         nextButton.SetActive((currentPage + 1) * itemsPerPage < allResults.Count);
     }
+
 
     public void NextPage() { currentPage++; UpdatePage(); }
     public void PrevPage() { currentPage--; UpdatePage(); }

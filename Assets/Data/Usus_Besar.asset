@@ -16,6 +16,6 @@ MonoBehaviour:
   definition: Usus besar merupakan kelanjutan dari usus halus yang memiliki tambahan
     usus yang berupa umbai cacing (appendix).
   function: Fungsi utama usus halus adalah menyerap air dari feses.
-  imageSlide1: {fileID: 0}
-  imageSlide2: {fileID: 0}
+  imageSlide1: {fileID: 21300000, guid: 49667db8be076d14db6b946d552ad156, type: 3}
+  imageSlide2: {fileID: 21300000, guid: a5391c12479fb814c96b0292e99ced68, type: 3}
   videoClip: {fileID: 0}

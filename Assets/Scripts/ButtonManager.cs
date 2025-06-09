@@ -8,8 +8,7 @@ public class ButtonManager : MonoBehaviour
     public MatchTheOrganGameManager organGameManager;
 
     public UIManager uiManager;
-    public ResumeUIManager resumeUIManager;
-
+    public HomeUIManager homeUIManager;
 
     public Transform humanOrgansParent;
     public GameObject findTheOrganGameManager;
@@ -147,7 +146,7 @@ public class ButtonManager : MonoBehaviour
     public void StartOrganPuzzle()
     {
         organShuffler.ShuffleOrgans();
-        //organGameManager.StartMatchOrganGame();
+        organGameManager.StartMatchOrganGame();
     }
 
     public void FinishOrganPuzzle()
@@ -172,9 +171,10 @@ public class ButtonManager : MonoBehaviour
     public void OnPreviousSlide() => uiManager.OnPreviousSlide();
 
     // UI Resume
-    public void OnHomeButtonPressed() => resumeUIManager.OnHomeButtonPressed();
-    public void OnResumePressed() => resumeUIManager.OnResumePressed();
-    public void OnSelectLevelPressed() => resumeUIManager.OnSelectLevelPressed();
-    public void OnReturnHomePressed() => resumeUIManager.OnReturnHomePressed();
+    public void OnHomeButtonPressed() => homeUIManager.OnHomeButtonPressed();
+    public void OnResumePressed() => homeUIManager.OnResumePressed();
+    public void OnSelectLevelPressed() => homeUIManager.OnSelectLevelPressed();
+    public void OnCloseSelectLevelPressed() => homeUIManager.OnCloseSelectLevelPressed();
+    public void TeleportToHome() => homeUIManager.TeleportToHome();
 
 }

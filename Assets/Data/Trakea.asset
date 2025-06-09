@@ -17,6 +17,6 @@ MonoBehaviour:
     laring (kotak suara) ke bronkus paru-paru.
   function: Trakea adalah bagian terpadu dari jalur napas dan memiliki fungsi vital
     untuk mengalirkan udara ke dan dari paru-paru untuk pernapasan.
-  imageSlide1: {fileID: 21300000, guid: fb920bc68b37e2c439488cc21820e658, type: 3}
-  imageSlide2: {fileID: 0}
+  imageSlide1: {fileID: 21300000, guid: 8108bc55208e2fe4ab493361c9292b83, type: 3}
+  imageSlide2: {fileID: 21300000, guid: 49d9b99f77bcefc4bb830250bf79097b, type: 3}
   videoClip: {fileID: 0}
