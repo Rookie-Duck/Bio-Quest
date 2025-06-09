@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 250c291ac51736b44ae7e56b176eee3c, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: e8c7b5a2753232b4ea1dd4cf48539be5, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: ef040788efaf3944b956c601988a2dcf, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -11279,14 +11279,22 @@ PrefabInstance:
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: TeleportToHome
       objectReference: {fileID: 0}
+    - target: {fileID: 3665405120484213064, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8098447099932614273, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8098447099932614273, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8098447099932614273, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 604403693}
     - target: {fileID: 8098447099932614273, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
@@ -11296,8 +11304,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8098447099932614273, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: TeleportToHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098447099932614273, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
       value: OnPoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098447099932614273, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ButtonManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8098447099932614273, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
@@ -35328,7 +35344,7 @@ Transform:
   m_GameObject: {fileID: 1123645125}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -3.49, z: 9.73}
+  m_LocalPosition: {x: 0.5, y: -3.49, z: 11.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56390,6 +56406,10 @@ PrefabInstance:
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 604403693}
+    - target: {fileID: 3665405120484213064, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5015847451865767128, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
       propertyPath: homeUIManager
       value: 
@@ -56410,6 +56430,18 @@ PrefabInstance:
       propertyPath: homeUIManager
       value: 
       objectReference: {fileID: 2012212971}
+    - target: {fileID: 8098447099932614273, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 604403693}
+    - target: {fileID: 8098447099932614273, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: TeleportToHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098447099932614273, guid: 403a0ea92d7108043a8f4df3afc8f2ad, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ButtonManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
