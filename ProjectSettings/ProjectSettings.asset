@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Rookie Duck Dev
+  companyName: MMT Lab
   productName: Bio Quest
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -143,11 +143,9 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 0.1
+  bundleVersion: 1.0.7
   preloadedAssets:
   - {fileID: 11400000, guid: b482fd252a74f444c8fbe2d9b54f3303, type: 2}
-  - {fileID: -5173085987816108713, guid: 9baf91976174a6f43a2199733e3e48ca, type: 2}
-  - {fileID: -3948208297875880024, guid: 5825a629f7af75e4eb55c59d1bb658f2, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -168,14 +166,14 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.RookieDuckDev.BioQuest
+    Android: com.MMTLab.BioQuest
     Standalone: com.Rookie-Duck-Dev.Bio-Quest
   buildNumber:
     Standalone: 0
     VisionOS: 0
     iPhone: 0
     tvOS: 0
-  overrideDefaultApplicationIdentifier: 0
+  overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 32
   AndroidTargetSdkVersion: 32
@@ -295,7 +293,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 3127278cc760ded4fad74954fec573da, type: 3}
+      m_Icon: {fileID: 2800000, guid: b1993487fd19ed840914990866cc78e9, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

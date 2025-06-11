@@ -34,6 +34,7 @@ public class FindTheOrganGameManager : MonoBehaviour
     private bool gameRunning = false;
     private bool waitingNext = false;
 
+    public ButtonManager buttonManager;
     public enum Language
     {
         English,
@@ -300,5 +301,16 @@ public class FindTheOrganGameManager : MonoBehaviour
             currentLanguage = Language.English;
         else if (lang.ToLower() == "indonesian")
             currentLanguage = Language.Indonesian;
+    }
+
+    public void ForceStopAndReset()
+    {
+        StopAllCoroutines();
+        gameRunning = false;
+        waitingNext = false;
+        sfxSource.Stop();
+        bgmSource.Stop();
+        if (currentUI != null) Destroy(currentUI);
+        buttonManager.ResetAllOrgans(); // kalau butuh reset posisi organ, pakai ButtonManager.ResetAllOrgans() atau internal to this
     }
 }

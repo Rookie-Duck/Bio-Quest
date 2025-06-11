@@ -17,6 +17,9 @@ public class ButtonManager : MonoBehaviour
     private Dictionary<Transform, Quaternion> initialRotations = new Dictionary<Transform, Quaternion>();
 
     private int clickCount = 0;
+    private Coroutine rotateCoroutine;
+
+    public OrganHider organHider;
 
     void Awake()
     {
@@ -175,6 +178,65 @@ public class ButtonManager : MonoBehaviour
     public void OnResumePressed() => homeUIManager.OnResumePressed();
     public void OnSelectLevelPressed() => homeUIManager.OnSelectLevelPressed();
     public void OnCloseSelectLevelPressed() => homeUIManager.OnCloseSelectLevelPressed();
-    public void TeleportToHome() => homeUIManager.TeleportToHome();
+    public void TeleportToHome()
+    {
+        homeUIManager.TeleportToHome();
+        ResetAllOrgans(); // common
+
+        OrganExplorerUIManager.Instance?.CloseUI(); // tutup explorer UI
+
+        var fg = findTheOrganGameManager.GetComponent<FindTheOrganGameManager>();
+        fg?.ForceStopAndReset();
+
+
+        organHider.UnhideAll(); // Find the Organ
+    }
+
+
+    // Rotating the Organ Parents
+    public void StartRotateParent(Transform targetParent, Vector3 axis, float speed = 50f)
+    {
+        if (rotateCoroutine != null) StopCoroutine(rotateCoroutine);
+        rotateCoroutine = StartCoroutine(RotateContinuously(targetParent, axis, speed));
+    }
+
+    public void StopRotateParent()
+    {
+        if (rotateCoroutine != null) StopCoroutine(rotateCoroutine);
+        rotateCoroutine = null;
+    }
+
+    private IEnumerator RotateContinuously(Transform target, Vector3 axis, float speed)
+    {
+        while (true)
+        {
+            target.Rotate(axis * speed * Time.deltaTime, Space.World);
+            yield return null;
+        }
+    }
+
+    public void OnRotateButtonPressed()
+    {
+        StartRotateParent(humanOrgansParent, Vector3.up, 50f); // rotate Y axis
+    }
+
+    public void OnStopRotatePressed()
+    {
+        StopRotateParent();
+    }
+
+    // Hider in the Find the Organ
+
+    public void OnHideButtonPressed()
+    {
+        organHider.HideNext();
+    }
+
+    public void OnUnhideAllButtonPressed()
+    {
+        ResetAllOrgans();
+
+        organHider.UnhideAll();
+    }
 
 }
